@@ -11,6 +11,13 @@ const studentsRoutes = require('./routes/studentsRoutes');
 
 const app = express();
 
+const corsOptions = {
+    origin: ['http://example.com', 'https://another-example.com'], // Allow requests from these origins
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allow these HTTP methods
+    allowedHeaders: ['Content-Type', 'Authorization'], // Allow these headers
+  };
+  
+  app.use(cors(corsOptions));
 // Middleware
 app.use(cors()); // Enable CORS
 app.use(bodyParser.json()); // Parse JSON bodies
